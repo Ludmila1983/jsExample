@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        img {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+<ul>
+ 
+</ul>
+<form>
+    <input type="text" name="name">
+    <br>
+    <input type="url" name="img">
+    <br>
+    <textarea name="message"></textarea>
+    <br>
+    <input type="submit" value="Send">
+</form>
+<script>
+    const ul = document.body.querySelector('ul');
+    setInterval(async () => {
+        const response = await fetch('http://localhost:3000/messages')
+        const messages = await response.json();
+        ul.innerHTML = '';
+        messages.forEach(message => {
+            const li = document.createElement('li');
+            li.innerHTML = `<p> <img src="${message.img}"/>Name: ${message.name}, Text: ${message.message}</p>`
+            ul.append(li);
+        })
+    }, 500)
+    
+    const form = document.forms[0];
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const data = {
+            name: form.elements.name.value,
+            img: form.elements.img.value,
+            message: form.elements.message.value
+        };
+        const response = await fetch('http://localhost:3000/messages', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        const json = await response.json();
+        console.log(json);
+    })
+</script>
+</body>
+</html>

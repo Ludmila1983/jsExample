@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <style>
+        /* .red{
+            background-color: red;
+        } */
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+<img src="" alt="">
+
+
+    <script>
+        // const li =document.body.querySelector('ul>li.middle');
+        // li.previousElementSibling.style.backgroundColor="red";
+        // const ul=li.parentElement.style.backgroundColor="blue"
+        // const el =document.body.querySelectorAll('li');
+        // el.forEach(li=>{
+        //     let n = li.textContent;
+        //     n=Number.parseInt(n);
+        //     n=n*2;
+        //     li.textContent=n
+        // })
+
+        // const el =document.body.querySelectorAll("li:nth-child(2n)");
+        // el.forEach(l=>l.classList.add('red'));
+
+        const images =[ "https://mobimg.b-cdn.net/v3/fetch/4d/4d671cfe78cbb63a617875e1f6023157.jpeg ", "https://m.buro247.ru/images/senina/max-baskakov-OzAeZPNsLXk-unsplash.jpg ", "https://icdn.lenta.ru/images/2021/12/13/00/20211213002603327/square_320_6df6f5217f0f0b3e856b6a0276c1d270.jpg "];
+        const img =document.body.querySelector('img');
+        // img.src='https://tlum.ru/uploads/22fa9437434982ea805c89581a59f5487dff254c222261114e9668c829225a9f.jpeg';
+        let index=0;
+        setInterval(()=> {
+            img.src=images[index];
+            index++;
+            if(images.length==index) {
+                index=0;
+            }
+        }, 1000)
+        
+    </script>
+</body>
+</html>

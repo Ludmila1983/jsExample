@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    
+    <form action="">
+        <label for="name">name</label>
+        <input type="text" id="name" name="name">
+        <label for="age">age</label>
+        <input type="text" id="age" name="age">
+        <label for="password">password</label>
+        <input type="password" id="password" name="password">
+        <label for="confirmPassword">confirmPassword</label>
+        <input type="confirmPassword" id="confirmPassword" name="confirmPassword">
+        <label for="remember">remember</label>
+        <input type="checkbox" id="remember" name="remember">
+        <button type="submit">Submit</button>
+    </form>
+
+    <ul>
+
+    </ul>
+   
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<script>
+    const inputName= document.getElementById('name');
+    const inputAge= document.getElementById('age');
+    const inputPassword= document.getElementById('password');
+    const inputConfirmPassword= document.getElementById('confirmPassword');
+    const checkbox= document.getElementById('remember');
+    
+    const form=document.querySelector('form');
+    form.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        const errors=[];
+        
+        if (inputName.value.length<5){
+            
+            errors.push('Поле должно быть больше 5 символов')
+        }
+        if (inputAge.value.includes(' ')){
+            errors.push('возраст не должен содржать пробелы')
+        }
+        if ( !Number(inputAge.value)) {
+            errors.push('введите число')
+            
+        } else if (Number(inputAge.value)>18){
+            errors.push('возраст должен быть меньше 18')
+        }
+        if (inputPassword.value!==inputConfirmPassword.value) {
+            errors.push('пароли должны совпадать')
+        }
+        if (!checkbox.checked) {
+            errors.push('нужно поставить галочку')
+        }
+        const ul=document.querySelector('ul');
+        ul.innerHTML=" ";
+        const lis= errors.map(error=>{
+            const li =document.createElement('li');
+            li.textContent=error;
+            return li
+        })
+        ul.append(...lis)
+
+
+    });
+ 
+
+</script>
+</body>
+</html>

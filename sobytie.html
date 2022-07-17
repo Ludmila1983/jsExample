@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+
+    </ul>
+
+    <button> add</button>
+
+    <script>
+        const ul =document.body.querySelector('ul');
+        const button =document.body.querySelector('button');
+        let i=1;
+
+        function add (){
+            
+            const li=document.createElement('li');
+            ul.append(li);
+            li.textContent=(i);
+            i++;
+        }
+
+        
+            
+        button.addEventListener('click', add);
+
+        
+        ul.addEventListener('contextmenu', (e) =>
+         {e.preventDefault();
+            if(e.target.tagName='LI') {
+            e.target.remove()};
+
+        })
+    </script>
+</body>
+</html>

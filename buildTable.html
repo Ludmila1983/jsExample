@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Написать функцию, которая строит таблицу n (кол-во столбцов) на k (кол-во строк), используя Javascript. 
+        В каждую ячийку записать текст типа ‘n - k’ -->
+    <script>
+   
+        function buidTable(n,k) {
+            let table=document.createElement('table');
+            document.body.prepend(table);
+            table.style.borderCollapse='collapse'
+            for (let i=1; i<=n; i++) {
+            tr=document.createElement('tr');
+            table.append(tr);
+            for (let j=1; j<=k; j++) {
+                td=document.createElement('td');
+                tr.append(td);
+                td.textContent=`${i} - ${j}`;
+                td.style.border="1px solid black";
+                td.style.padding="20px";
+                // if (i==j) {
+                //     td.style.backgroundColor='blue'
+                // }
+            }
+
+            }
+
+        }
+        buidTable(3,3);
+
+        const table=document.body.querySelector('table');
+    
+
+        table.addEventListener('click', (e) =>
+        {
+            if(e.target.tagName==='TD' ) {
+                
+                const tr=e.target.closest('tr');
+                Array.from( tr.children).forEach(td => {
+                    if (td !==e.target) {
+                        td.style.backgroundColor='red'
+                    }
+                })
+                
+                
+
+        }
+        ;
+
+        })
+
+        
+    </script>
+</body>
+</html>

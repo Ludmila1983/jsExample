@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <style>
+        li{
+            list-style: square;
+        }
+    
+        .item{
+            color: rgb(200, 242, 200);
+        }
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            <p>text1</p>
+        </li>
+        <li>
+            <p class="small">text2</p>
+        </li>
+        <li>
+            <p>text3</p>
+        </li>
+        <li>
+            <p class="big">text4</p>
+        </li>
+        <li>
+            <p>text5</p>
+        </li>
+    </ul>
+
+
+    <script>
+
+// Сделайте текст в четных(по порядку следования) тегах p подчеркнутым
+// Удалите тег p с текстом text3
+// Добавьте всем элементам li CSS-класс item
+// Удалите все CSS-классы у тегов p
+
+let podch =document.body.querySelectorAll("li:nth-child(2n)>p");
+podch.forEach(p=>p.style.textDecoration="underline");
+
+let elem=document.body.querySelectorAll('p');
+for (let el of elem) {
+    if(el.innerHTML=='text3') { el.remove()}
+}
+
+let items=document.body.querySelectorAll('li');
+items.forEach(li=>li.classList.add('item'));
+let it=document.querySelectorAll('.item');
+it.forEach(li=>li.style.backgroundColor="blue")
+
+
+let elements=document.body.querySelectorAll('p');
+for (let el of elements) {
+    el.className=('');
+}
+
+    </script>
+</body>
+</html>

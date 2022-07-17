@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let data = [
+	{
+		"name": "Cain Lynn",
+		"phone": "1-417-854-7424",
+		"email": "lorem@protonmail.edu",
+		"address": "5536 Velit. St.",
+		"list": "15",
+		"country": "Italy",
+		"region": "Leinster",
+		"postalZip": "89783-255",
+		"text": "magnis dis parturient montes, nascetur ridiculus mus. Donec dignissim magna",
+		"numberrange": "8",
+		"currency": "$94.01",
+		"alphanumeric": "CTV24JPT9RW"
+	},
+	{
+		"name": "Judah Mcbride",
+		"phone": "(402) 567-6336",
+		"email": "donec.porttitor@aol.couk",
+		"address": "166-8205 Nibh. Ave",
+		"list": "1",
+		"country": "Belgium",
+		"region": "Cardiganshire",
+		"postalZip": "970317",
+		"text": "vitae mauris sit amet lorem semper auctor. Mauris vel turpis.",
+		"numberrange": "4",
+		"currency": "$47.74",
+		"alphanumeric": "PGQ32UNU0XD"
+	},
+	{
+		"name": "Keefe Moses",
+		"phone": "1-273-782-6340",
+		"email": "purus.gravida.sagittis@outlook.couk",
+		"address": "Ap #634-264 Lacus. Avenue",
+		"list": "19",
+		"country": "Norway",
+		"region": "Daman and Diu",
+		"postalZip": "415350",
+		"text": "mi. Duis risus odio, auctor vitae, aliquet nec, imperdiet nec,",
+		"numberrange": "3",
+		"currency": "$20.42",
+		"alphanumeric": "LRY89OBD0QW"
+	},
+	{
+		"name": "Patience Schwartz",
+		"phone": "1-265-858-6085",
+		"email": "sed.consequat.auctor@aol.com",
+		"address": "851-7882 Elit Ave",
+		"list": "1",
+		"country": "New Zealand",
+		"region": "Tasmania",
+		"postalZip": "114815",
+		"text": "volutpat nunc sit amet metus. Aliquam erat volutpat. Nulla facilisis.",
+		"numberrange": "7",
+		"currency": "$87.18",
+		"alphanumeric": "FPV93SFQ3ZH"
+	},
+	{
+		"name": "Maisie Tucker",
+		"phone": "1-331-402-4225",
+		"email": "dui.nec@aol.org",
+		"address": "P.O. Box 349, 8539 Dolor, Street",
+		"list": "11",
+		"country": "Turkey",
+		"region": "Xīnán",
+		"postalZip": "6165",
+		"text": "ligula. Nullam feugiat placerat velit. Quisque varius. Nam porttitor scelerisque",
+		"numberrange": "9",
+		"currency": "$42.23",
+		"alphanumeric": "XCF85XIU5GH"
+	}
+];
+const table = document.createElement('table');
+table.className = 'table  table-striped';
+const tbody = document.createElement('tbody');
+const thead = document.createElement('thead');
+document.body.append(table);
+
+table.append(thead);
+table.append(tbody);
+const headers = Object.keys(data[0]);
+const tr = document.createElement('tr');
+
+thead.append(tr);
+
+headers.forEach(header => {
+    const th = document.createElement('th');
+    th.textContent = header;
+    tr.append(th);
+	tr.style.backgroundColor='blue';
+	th.style.padding='10px'
+});
+
+
+ 
+// console.log(...Object.values(data[0]));
+
+function renderTable(rows) {
+    tbody.innerHTML = '';
+    rows.forEach(row => {
+        const tr = document.createElement('tr');
+        tbody.append(tr);
+        headers.forEach(header => {
+            const td = document.createElement('td');
+            td.textContent = row[header];
+            tr.append(td);
+			td.style.border="1px solid black";
+			td.style.padding="10px";
+        })
+    })
+}
+renderTable(data);
+table.style.borderCollapse='collapse';
+
+
+const sort = {
+    propertyName: '',
+    order: true,
+}
+thead.addEventListener('click', function (event) {
+    if (event.target.tagName === 'TH') {
+        const sortBy = event.target.textContent;
+        if (sort.propertyName === sortBy) {
+            sort.order = !sort.order;
+        } else {
+            sort.order = true
+        }
+        sort.propertyName = sortBy;
+        data.sort((a, b) => {
+            if (a[sortBy] > b[sortBy]) {
+                return 1;
+            } else if (a[sortBy] < b[sortBy]) {
+                return -1;
+            }
+            return 0;
+        })
+        if (!sort.order){
+            data = data.reverse();
+        }
+        renderTable(data);
+    }
+})
+</script>
+</body>
+</html>

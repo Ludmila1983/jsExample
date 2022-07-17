@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // const ul=document.createElement('ul');
+        // document.body.prepend(ul);
+
+        // for (let i=1; i<100; i++){
+        //     const li=document.createElement('li');
+        //     li.textContent=`item ${i}`;
+        //     ul.append(li);
+        // }
+
+        // const article=document.createElement('article');
+        // document.body.prepend(article);
+        // const h3=document.createElement('h3');
+        // h3.textContent='title';
+        // article.prepend(h3);
+        // const ol=document.createElement('ol');
+        // article.append(ol);
+        // const p=document.createElement('p');
+        // p.textContent="content";
+        // article.prepend(p);
+        
+        // for (let i=1; i<=2; i++){
+        //     const li=document.createElement('li');
+        //     li.textContent=i;
+        //     ol.append(li);
+        // }
+        // const footer=document.createElement('footer');
+        // article.append(footer);
+        // const a=document.createElement('a');
+        // a.href="google.com";
+        // a.textContent="author";
+        // footer.append(a);
+
+        const ul=document.createElement('ul');
+        document.body.prepend(ul);
+        fetch('http://jsonplaceholder.typicode.com/todos')
+.then(res=>res.json())
+.then( data=>{
+console.log(data);
+            data.forEach(el=> { 
+            const li=document.createElement('li');
+            ul.append(li);
+            // li.textContent=el.title;
+            const p=document.createElement('p');
+            p.textContent=el.title;
+            li.append(p);
+            const span=document.createElement('span');
+            span.textContent=el.id;
+            li.prepend(span);
+            const input=document.createElement('input');
+            input.type='checkbox'
+            li.append(input);
+            input.checked=el.completed;
+        
+
+
+            
+        })
+
+        const lis =document.body.querySelectorAll('li');
+        lis.forEach(li=>{
+            const input=li.querySelector('input')
+            if(input.checked) {
+                
+            }
+        })
+
+        
+        let dudu =setInterval(()=>{
+            if(ul.children.length>0) {
+                const r= Math.floor(Math.random()*ul.children.length);
+                ul.children.item(r).remove();
+            } else {
+                clearInterval(dudu)
+            }
+
+        }, 500)
+
+
+    })
+
+
+
+    </script>
+</body>
+</html>

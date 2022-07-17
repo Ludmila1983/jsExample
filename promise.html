@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // const promise= new Promise((resolve,reject)=> {
+            
+        //     setTimeout(()=> {
+        //         let n =Math.random();
+        //     if (n>0) {
+        //         resolve(n);
+        //     } else {reject (n)
+        //     }
+        //     },100)
+        
+        // })
+
+        // promise.then(n=>{
+        //     console.log('ОК', n);
+        // })
+        // .catch (n=> {('Error',n)})
+    
+    //     const images=['https://klike.net/uploads/posts/2019-06/1559798617_1.jpg','https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Felis_silvestris_silvestris.jpg/1200px-Felis_silvestris_silvestris.jpg', 'https://img.novosti-n.org/upload/ukraine/701634.jpg', 'https://ic.pics.livejournal.com/tanjand/44781189/90431828/90431828_original.jpg']
+        
+    //     function image(url) {
+        
+    //         const promise = new Promise((resolve,reject)=> {
+    //         let img=document.createElement('img');
+    //         img.src=url;  
+    //         img.onload= () => resolve(img);
+    //         img.onerror= () => reject('Ошибка')
+    //     })
+    //     return promise;
+
+    //     }
+
+    // const newImages=images.map(e=> image(e)) ;
+    //     Promise.all(newImages)
+    //     .then(imgs=>{
+    //         imgs.forEach(img=>document.body.append(img))
+    //     })
+    //     .catch(()=>alert('error'))
+    // image('https://klike.net/uploads/posts/2019-06/1560329641_2.jpg')
+    // .then(e =>{
+    //     document.body.append(e);
+
+    // }).catch(e=>{
+    //     alert(e)
+    // })
+
+
+    const sleep = ms => {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    sleep(5000).then(() => {
+      console.log('Выполнилось через 5 секунд!');
+    });
+    sleep(10000).then(() => {
+      console.log('Выполнилось через 10 секунд!');
+    });
+
+    </script>
+</body>
+

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    <style>
+        div {
+            margin: 50px;
+            padding: 50px;
+            border: 2px black dashed;
+        }
+       
+    </style>
+</head>
+<body>
+<div>
+    <div></div>
+    <div>
+        <div>
+            <div></div>
+            <div>
+                <div></div>
+                <div></div>
+            </div>
+            <div></div>
+        </div>
+    </div>
+    <div></div>
+    <div>
+        <div></div>
+        <div>
+            <div></div>
+        </div>
+        <div></div>
+        <div></div>
+    </div>
+    <div></div>
+</div>
+<!-- Закрасьте все div у которых нет дочерних элементов синим цветом
+Закрасьте все div у которых только 1 дочерний элемент желтым
+Закрасьте все div у которых больше 2 дочерних элементов серым -->
+
+<script>
+    
+    let elem=document.body.querySelectorAll('div');
+   elem.forEach((div)=>{
+    if (div.children.length===0) {
+        div.style.backgroundColor="blue"
+    } else if( div.children.length===1) {
+        div.style.backgroundColor="yellow"
+    } else if( div.children.length>2) {
+        div.style.backgroundColor="grey"}
+   })
+    
+
+</script>
+
+
+</body>
+</html>

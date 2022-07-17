@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+        
+   
+        const data = { belarus : ['brest', 'minsk'],
+                        ukraine: ['kiev','odesa'],
+                        france: ['paris', 'brest']}
+
+        const mainSelect = document.createElement('select');
+        const secondSelect = document.createElement('select');
+        secondSelect.hiden = true;
+        document.body.append(mainSelect);
+        document.body.append(secondSelect);
+        const countries = Object.keys(data);
+        console.log(countries);
+        countries.forEach(country => {
+            const option = new Option (country, country);
+            mainSelect.append(option);
+        });
+        console.log(mainSelect);
+        mainSelect.addEventListener('change', () =>{
+            secondSelect.hiden = false;
+            secondSelect.innerHTML = "";
+            const country = mainSelect.value;
+            const cities = data[country];
+         
+            cities.forEach(city => {
+                const option = new Option (city, city);
+                secondSelect.append(option)
+            
+        })
+           
+    })
+    </script>
+</body>
+</html>

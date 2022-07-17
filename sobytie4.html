@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .line{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <!-- <form action="" name="example">
+        <input name="myinput" type="text">
+        <button>нажать</button>
+    </form>  -->
+    <!-- <input name="first" type="text" id="first">+
+    <input name="second" type="text" id="second">=
+    <p></p>
+    <input type="checkbox" name="check" id="check">
+    <button>click</button> -->
+        <!-- <ul>
+
+        </ul> -->
+        <!-- <input type="text" name="first">
+        <button>click</button> -->
+    
+    <input type="text" name="src">
+    <button>click </button>
+   
+
+    <script>
+        // const input=document.body.querySelector('input');
+        // const ul=document.body.querySelector('ul');
+        // document.body.querySelector('button').addEventListener('click', ()=> {
+        //     const li=document.createElement('li');
+        //     ul.append(li);
+        //     li.textContent=input.value;
+        //     input.value="";
+        // li.addEventListener('click', function() {
+        //     this.classList.toggle('line')
+        // })
+        // })
+
+        
+        const src=document.body.querySelector('input[name="src"]');
+        document.body.querySelector('button').addEventListener('click', () => {
+        const img=document.createElement('img');
+        img.src=src.value;
+        document.body.append(img);
+        })
+
+        
+        // function add() {
+
+        // }
+        // document.querySelector('button').addEventListener('click', add)
+
+
+        // let form=document.forms.example;
+        // form.addEventListener('submit', (e)=> {
+        //     e.preventDefault();
+        //     form.elements.myinput.value=' ';
+        // })
+
+    // function summa () {
+    // const inputs= document.querySelectorAll('input');
+    // const res = Array.from(inputs).reduce((a,b)=> Number.parseInt(b.value)+a, 0);
+    // console.log(res);
+    // const result=document.querySelector('p');
+    // result.textContent=res;
+    // let check =document.getElementById('check');
+    // const inp1=document.getElementById('first');
+    //     const inp2=document.getElementById('second');
+    //     let result=document.querySelector('p');
+
+    //     if (check.checked ) {
+    //         let res=Number.parseInt(inp1.value)+Number.parseInt(inp2.value);
+    //         result.textContent=res
+
+    //     } else {
+    //     res=Number.parseInt(inp1.value)-Number.parseInt(inp2.value);
+    //         result.textContent=res
+    //     }
+    // }
+    
+    // document.querySelector('button').addEventListener('click', summa)
+
+    </script>
+</body>
+</html>

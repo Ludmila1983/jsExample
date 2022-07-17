@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul >
+
+    </ul>
+    <form action="">
+        <input type="text" name="name" id="name">
+        <br>
+        <input type="url" name="url" id="url">
+        <br>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <button type="submit"></button>
+        
+    </form>
+    <script>
+        const ul=document.querySelector('ul');
+        fetch('http://192.168.0.200:3000/messages')
+        .then((response) => {
+    return response.json();
+})
+.then((data) => {
+    console.log(data);
+    
+    data.forEach(el=>{
+        const li =document.createElement('li');
+        const img=document.createElement('img');
+        const p=document.createElement('p');
+        const span=document.createElement('span');
+        span.textContent=el.name;
+        img.src=el.img;
+        p.innerHTML=el.message;
+        li.append(p);
+        li.append(img);
+        li.append(span);
+        ul.append(li);
+    })
+
+
+    
+});
+
+document.querySelector('form').addEventListener('submit', (e)=>{
+    e.preventDefault();
+    
+    const name=document.getElementById('name');
+    const url=document.getElementById('url');
+    const textarea=document.getElementById('message');
+    const data={name: name.value,
+        img: url.value,
+          message: message.value}
+    
+
+    fetch('http://192.168.0.200:3000/messages', {
+    method: 'POST', 
+    headers: {
+    'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(data) 
+})
+.then((response) => {
+    return response.json();
+})
+    
+})
+
+
+
+
+    </script>
+</body>

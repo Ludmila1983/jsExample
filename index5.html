@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+     <title>Document</title>
+</head>
+<body>
+    <!-- В html файле с пустым body, использую javascript, создайте структуру из кода ниже -->
+<!-- <header>
+    <nav>
+        <ul class="head-menu">
+            <li>page1</li>
+            <li>page2</li>
+            <li>page3</li>
+            <li>page4</li>
+        </ul>
+    </nav>
+</header>
+<main class="container">
+    <article>
+        <h1>title</h1>
+        <p>content</p>
+    </article>
+    <aside class="sidebar">
+        <ul>
+            <li>post1</li>
+            <li>post2</li>
+            <li>post3</li>
+        </ul>
+    </aside>
+</main>
+<footer>
+    <p>copyright <b>text</b></p>
+</footer> -->
+
+<script>
+    let header=document.createElement('header');
+    document.body.prepend(header);
+    let nav=document.createElement('nav');
+    header.prepend(nav);
+    let ul=document.createElement('ul');
+    nav.prepend(ul);
+    ul.classList.add('head-menu');
+    
+    for (let i=1; i<=4; i++) {
+        let li=document.createElement('li');
+        li.textContent=(`page${i}`);
+        ul.append(li);
+    }
+
+    const main=document.createElement('main');
+    header.after(main);
+    main.classList.add('container');
+    const article=document.createElement('article');
+    main.prepend(article);
+    const h1=document.createElement('h1');
+    article.prepend(h1);
+    h1.textContent="title";
+    let p =document.createElement('p');
+    p.textContent="content"
+    article.append(p);
+
+    const aside=document.createElement('aside');
+    aside.classList="sidebar"
+    article.after(aside);
+    const ul2=document.createElement('ul');
+    aside.prepend(ul2);
+    for (let i=1; i<=3; i++) {
+        const li2=document.createElement('li');
+        ul2.append(li2);
+        li2.textContent=(`post${i}`);
+    }
+
+    const footer=document.createElement('footer');
+    main.after(footer);
+    const p2=document.createElement('p');
+    footer.prepend(p);
+    p.textContent='copyright ';
+    p.insertAdjacentHTML('beforeend', '<b>text</b>');
+    
+</script>
+</body>
+</html>

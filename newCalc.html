@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .calculator {
+            display: grid;
+            width: 350px;
+            border: 1px solid grey;
+            border-radius: 5px;
+            background-color: grey;
+            padding: 10px;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            column-gap: 5px;
+            row-gap: 5px;
+            grid-auto-rows: 80px;
+        }
+        .display{
+            grid-column: 1/5;
+            padding: 15px;
+            background-color: white;
+            color: black;
+            font-size: 40px;
+            border-radius: 5px;
+
+        }
+        .calc{
+            font-size: 25px;
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px rgb(149, 148, 148);
+        }
+        .calc:hover {
+            opacity: 0.8;
+        }
+        .calc:active{
+            box-shadow: 1px 1px 1px;
+        }
+        .operator{
+            background-color: rgb(201, 201, 243);
+        }
+        .sbros{
+            background-color: rgb(236, 99, 99);
+        }
+        .itog{
+            background-color: rgb(112, 112, 238);
+        }
+    </style>
+</head>
+<body>
+<div class="calculator">
+
+    <div class="display" id="display"></div>
+    <button type="button" class="calc">1</button>
+    <button type="button" class="calc">2</button>
+    <button type="button" class="calc">3</button>
+    <button type="button" class="calc operator">+</button>
+    <button type="button" class="calc">4</button>
+    <button type="button" class="calc">5</button>
+    <button type="button" class="calc">6</button>
+    <button type="button" class="calc operator">-</button>
+    <button type="button" class="calc">7</button>
+    <button type="button" class="calc">8</button>
+    <button type="button" class="calc">9</button>
+    <button type="button" class="calc operator">*</button>
+    <button type="button" class="calc operator sbros">C</button>
+    <button type="button" class="calc">0</button>
+    <button type="button" class="calc operator itog">=</button>
+    <button type="button" class="calc operator">/</button>
+</div>
+
+    <script>
+        const display=document.getElementById('display');
+        const calculator=document.querySelector('.calculator');
+        calculator.addEventListener('click', (e)=>{
+            if (!e.target.classList.contains('calc')) return;
+
+        let value=e.target.innerHTML;
+    
+        if (value =='C') {
+            display.innerHTML=" "
+        } else if (value==="=") {
+            display.innerHTML=eval(display.innerHTML)
+        } else {
+        display.innerHTML =display.innerHTML+ value;
+        }
+        
+        
+        })
+    </script>
+</body>
+</html>
+
+
+
